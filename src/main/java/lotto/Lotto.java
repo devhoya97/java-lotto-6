@@ -1,11 +1,14 @@
 package lotto;
 
+import static lotto.LottoConstants.ERROR;
 import static lotto.LottoConstants.LOTTO_SIZE;
 import static lotto.LottoConstants.MAX_LOTTO_NUMBER;
 import static lotto.LottoConstants.MIN_LOTTO_NUMBER;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -15,13 +18,32 @@ public class Lotto {
     }
 
     public Lotto(List<Integer> numbers) {
-        validate(numbers);
+        validateSize(numbers);
+        validateRange(numbers);
+        validateDuplication(numbers);
+
         this.numbers = numbers;
     }
 
-    private void validate(List<Integer> numbers) {
+    private void validateSize(List<Integer> numbers) {
         if (numbers.size() != LOTTO_SIZE) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ERROR + "로또 번호의 개수가 올바르지 않습니다.");
+        }
+    }
+
+    private void validateRange(List<Integer> numbers) {
+        for (Integer number : numbers) {
+            if (number < MIN_LOTTO_NUMBER || number > MAX_LOTTO_NUMBER) {
+                throw new IllegalArgumentException(ERROR + "로또 번호가 올바른 범위 안에 들어오지 않습니다.");
+            }
+        }
+    }
+
+    private void validateDuplication(List<Integer> numbers) {
+        Set<Integer> uniqueNumbers = new HashSet<>(numbers);
+
+        if (uniqueNumbers.size() != numbers.size()) {
+            throw new IllegalArgumentException(ERROR + "로또 번호에 중복이 있습니다.");
         }
     }
 
