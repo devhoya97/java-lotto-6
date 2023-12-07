@@ -21,4 +21,8 @@ public class PurchaseAmount {
     public int calculateAvailableLottoCount() {
         return (int) (money / PRICE_PER_LOTTO);
     }
+
+    public long getMoney() {
+        return money;
+    }
 }
