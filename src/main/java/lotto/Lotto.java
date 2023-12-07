@@ -60,6 +60,6 @@ public class Lotto {
     }
 
     public boolean hasBonusNumber(int bonusNumber) {
-        return false;
+        return numbers.contains(bonusNumber);
     }
 }
