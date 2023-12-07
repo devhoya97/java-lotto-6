@@ -47,11 +47,11 @@ public class Lotto {
         }
     }
 
-    public int getCorrectCount(List<Integer> winningNumbers) {
+    public int getCorrectCount(Lotto winningLotto) {
         int correctCount = 0;
 
         for (Integer number : numbers) {
-            if (winningNumbers.contains(number)) {
+            if (winningLotto.numbers.contains(number)) {
                 correctCount++;
             }
         }
