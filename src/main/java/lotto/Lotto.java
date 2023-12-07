@@ -48,12 +48,18 @@ public class Lotto {
     }
 
     public int getCorrectCount(List<Integer> winningNumbers) {
-        return 0;
+        int correctCount = 0;
+
+        for (Integer number : numbers) {
+            if (winningNumbers.contains(number)) {
+                correctCount++;
+            }
+        }
+
+        return correctCount;
     }
 
     public boolean hasBonusNumber(int bonusNumber) {
         return false;
     }
-
-    // TODO: 추가 기능 구현
 }
