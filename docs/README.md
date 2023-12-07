@@ -2,10 +2,11 @@
 - InputView
   - [x] 로또 구입 금액을 입력 받는다.
     - [x] [예외처리] Long타입으로 변환이 불가한 경우 IllegalArgumentException을 발생시킨다.
-  - [ ] 당첨 번호를 입력받는다.
-    - [ ] 번호는 쉼표를 기준으로 구분한다.
-    - [ ] [예외처리] 자연수가 아닌 경우 IllegalArgumentException을 발생시킨다.
+  - [x] 당첨 번호를 입력받는다.
+    - [x] 번호는 쉼표를 기준으로 구분한다.
+    - [x] [예외처리] Integer타입으로 변환이 불가한 경우 IllegalArgumentException을 발생시킨다.
   - [ ] 보너스 번호를 입력 받는다.
+    - [ ] [예외처리] Integer타입으로 변환이 불가한 경우 IllegalArgumentException을 발생시킨다.
 - Domain
   - [x] 로또 구입 금액을 관리한다.
     - [x] [예외처리] 0보다 작거나 같은 경우 IllegalArgumentException을 발생시킨다.
