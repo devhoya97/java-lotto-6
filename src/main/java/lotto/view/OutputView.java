@@ -27,16 +27,25 @@ public class OutputView {
         StringBuilder message = new StringBuilder();
 
         message.append("당첨 통계").append(NEW_LINE).append("---").append(NEW_LINE);
-        for (Prize prize : Prize.getPrizesExcludingNoPrize()) {
-            message.append(prize.getCorrectCount()).append("개 일치 (")
-                    .append(getFormattedMoney(prize.getWinningMoney())).append("원) - ")
-                    .append(countPrize(prizes, prize)).append("개").append(NEW_LINE);
-        }
+        addPrizeMessage(message, prizes);
 
         message.append("총 수익률은 ").append(roundToTwoDecimalPlaces(profitRate))
                 .append("%입니다.").append(NEW_LINE);
 
         System.out.println(message);
+    }
+
+    private static void addPrizeMessage(StringBuilder message, List<Prize> prizes) {
+        for (Prize prize : Prize.getPrizesExcludingNoPrize()) {
+            message.append(prize.getCorrectCount()).append("개 일치");
+
+            if (prize == Prize.SECOND) {
+                message.append(", 보너스 볼 일치");
+            }
+
+            message.append(" (").append(getFormattedMoney(prize.getWinningMoney())).append("원) - ")
+                    .append(countPrize(prizes, prize)).append("개").append(NEW_LINE);
+        }
     }
 
     private static int countPrize(List<Prize> prizes, Prize prize) {
