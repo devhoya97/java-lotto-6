@@ -33,7 +33,7 @@ public class OutputView {
                     .append(countPrize(prizes, prize)).append("개").append(NEW_LINE);
         }
 
-        message.append("총 수익률은 ").append(roundToTwoDecimalPlaces(profitRate)).append
+        message.append("총 수익률은 ").append(roundToTwoDecimalPlaces(profitRate))
                 .append("%입니다.").append(NEW_LINE);
 
         System.out.println(message);
