@@ -50,7 +50,7 @@ public class WinningChecker {
             }
         }
 
-        return null;
+        return Prize.NO_PRIZE;
     }
 
     private Prize determineSecondOrThird(boolean hasBonusNumber) {
