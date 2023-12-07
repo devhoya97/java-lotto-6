@@ -7,12 +7,12 @@ import lotto.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        PurchaseAmount purchaseAmount = new PurchaseAmount(InputView.getPurchaseAmount());
+        PurchaseAmount purchaseAmount = getValidPurchaseAmount();
         List<Lotto> lottos = buyLottos(purchaseAmount);
         OutputView.printLottoNumbers(lottos);
 
-        Lotto winningLotto = new Lotto(InputView.getWinningNumbers());
-        WinningChecker winningChecker = new WinningChecker(winningLotto, InputView.getBonusNumber());
+        Lotto winningLotto = getValidWinningLotto();
+        WinningChecker winningChecker = getValidWinningChecker(winningLotto);
         List<Prize> prizes = winningChecker.calculatePrizes(lottos);
         double profitRate = ProfitRateCalculator.calculate(prizes, purchaseAmount.getMoney());
 
@@ -26,5 +26,35 @@ public class Application {
         }
 
         return lottos;
+    }
+
+    public static PurchaseAmount getValidPurchaseAmount() {
+        while (true) {
+            try {
+                return new PurchaseAmount(InputView.getPurchaseAmount());
+            } catch (IllegalArgumentException illegalArgumentException) {
+                OutputView.printErrorMessage(illegalArgumentException.getMessage());
+            }
+        }
+    }
+
+    public static Lotto getValidWinningLotto() {
+        while (true) {
+            try {
+                return new Lotto(InputView.getWinningNumbers());
+            } catch (IllegalArgumentException illegalArgumentException) {
+                OutputView.printErrorMessage(illegalArgumentException.getMessage());
+            }
+        }
+    }
+
+    public static WinningChecker getValidWinningChecker(Lotto winningLotto) {
+        while (true) {
+            try {
+                return new WinningChecker(winningLotto, InputView.getBonusNumber());
+            } catch (IllegalArgumentException illegalArgumentException) {
+                OutputView.printErrorMessage(illegalArgumentException.getMessage());
+            }
+        }
     }
 }
