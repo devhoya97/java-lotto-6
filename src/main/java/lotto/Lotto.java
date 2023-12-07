@@ -1,9 +1,18 @@
 package lotto;
 
+import static lotto.LottoConstants.LOTTO_SIZE;
+import static lotto.LottoConstants.MAX_LOTTO_NUMBER;
+import static lotto.LottoConstants.MIN_LOTTO_NUMBER;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Lotto {
     private final List<Integer> numbers;
+
+    public Lotto() {
+        numbers = Randoms.pickUniqueNumbersInRange(MIN_LOTTO_NUMBER, MAX_LOTTO_NUMBER, LOTTO_SIZE);
+    }
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
@@ -11,7 +20,7 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
+        if (numbers.size() != LOTTO_SIZE) {
             throw new IllegalArgumentException();
         }
     }
