@@ -43,4 +43,10 @@ public class InputView {
             throw new IllegalArgumentException(ERROR + "입력을 Integer 타입으로 변환할 수 없습니다.");
         }
     }
+
+    public static Integer getBonusNumber() {
+        String input = Console.readLine();
+
+        return parseIntWithIllegalArgumentException(input);
+    }
 }
