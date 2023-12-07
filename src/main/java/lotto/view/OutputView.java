@@ -26,7 +26,7 @@ public class OutputView {
     public static void printResult(List<Prize> prizes, double profitRate) {
         StringBuilder message = new StringBuilder();
 
-        message.append("당첨 통계").append(NEW_LINE).append("---").append(NEW_LINE);
+        message.append(NEW_LINE).append("당첨 통계").append(NEW_LINE).append("---").append(NEW_LINE);
         addPrizeMessage(message, prizes);
 
         message.append("총 수익률은 ").append(roundToTwoDecimalPlaces(profitRate))

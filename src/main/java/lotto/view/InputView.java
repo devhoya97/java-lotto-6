@@ -8,6 +8,7 @@ import java.util.List;
 
 public class InputView {
     private static final String DELIMITER = ",";
+    private static final String NEW_LINE = "\n";
 
     public static long getPurchaseAmount() {
         System.out.println("구입금액을 입력해 주세요.");
@@ -26,7 +27,7 @@ public class InputView {
     }
 
     public static List<Integer> getWinningNumbers() {
-        System.out.println("당첨 번호를 입력해 주세요.");
+        System.out.println(NEW_LINE + "당첨 번호를 입력해 주세요.");
 
         String[] inputs = Console.readLine().split(DELIMITER);
 
@@ -48,7 +49,7 @@ public class InputView {
     }
 
     public static Integer getBonusNumber() {
-        System.out.println("보너스 번호를 입력해 주세요.");
+        System.out.println(NEW_LINE + "보너스 번호를 입력해 주세요.");
 
         String input = Console.readLine().trim();
 
