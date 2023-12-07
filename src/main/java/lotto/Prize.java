@@ -23,7 +23,7 @@ public enum Prize {
     }
 
     public static List<Prize> getPrizesExcludingNoPrize() {
-        return List.of(FIRST, SECOND, THIRD, FOURTH, FIFTH);
+        return List.of(FIFTH, FOURTH, THIRD, SECOND, FIRST);
     }
 
     public int getCorrectCount() {
