@@ -26,25 +26,38 @@ public class WinningChecker {
     }
 
     private void validateDuplication(Lotto winningLotto, int bonusNumber) {
-        if (winningLotto.hasBonusNumber(bonusNumber)) {
+        if (winningLotto.doesHaveBonusNumber(bonusNumber)) {
             throw new IllegalArgumentException(ERROR + "당첨 번호와 보너스 번호가 중복됩니다.");
         }
     }
 
-    private void validateWinningNumbers(List<Integer> winningNumbers) {
-
-    }
-
-    private void validateBonusNumber(List<Integer> winningNumbers, int bonusNumber) {
-
-    }
-
     public List<Prize> calculatePrizes(List<Lotto> lottos) {
-        return null;
+        return lottos.stream()
+                .map(this::calculatePrize)
+                .toList();
     }
 
     private Prize calculatePrize(Lotto lotto) {
+        int correctCount = lotto.getCorrectCount(winningLotto);
+
+        if (correctCount == Prize.SECOND.getCorrectCount()) {
+            return determineSecondOrThird(lotto.doesHaveBonusNumber(bonusNumber));
+        }
+
+        for (Prize prize : Prize.getPrizesExcludingFiveCorrect()) {
+            if (prize.getCorrectCount() == correctCount) {
+                return prize;
+            }
+        }
+
         return null;
+    }
+
+    private Prize determineSecondOrThird(boolean hasBonusNumber) {
+        if (hasBonusNumber) {
+            return Prize.SECOND;
+        }
+        return Prize.THIRD;
     }
 
 }
