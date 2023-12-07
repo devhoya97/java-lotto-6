@@ -10,6 +10,8 @@ public class InputView {
     private static final String DELIMITER = ",";
 
     public static long getPurchaseAmount() {
+        System.out.println("구입금액을 입력해 주세요.");
+
         String input = Console.readLine();
 
         return parseLongWithIllegalArgumentException(input);
@@ -24,10 +26,11 @@ public class InputView {
     }
 
     public static List<Integer> getWinningNumbers() {
+        System.out.println("당첨 번호를 입력해 주세요.");
+
         String[] inputs = Console.readLine().split(DELIMITER);
 
         List<Integer> winningNumbers = new ArrayList<>();
-
         for (String input : inputs) {
             Integer winningNumber = parseIntWithIllegalArgumentException(input);
             winningNumbers.add(winningNumber);
@@ -45,6 +48,8 @@ public class InputView {
     }
 
     public static Integer getBonusNumber() {
+        System.out.println("보너스 번호를 입력해 주세요.");
+
         String input = Console.readLine();
 
         return parseIntWithIllegalArgumentException(input);
