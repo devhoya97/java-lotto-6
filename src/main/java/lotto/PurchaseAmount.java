@@ -13,7 +13,7 @@ public class PurchaseAmount {
     }
 
     private void validate(long money) {
-        if (money % PRICE_PER_LOTTO != 0) {
+        if ((money <= 0) || (money % PRICE_PER_LOTTO != 0)) {
             throw new IllegalArgumentException(ERROR + "로또 구입 금액이 로또 가격으로 나누어 떨어지지 않습니다.");
         }
     }
