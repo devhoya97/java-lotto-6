@@ -51,7 +51,7 @@ public class OutputView {
     public static String roundToTwoDecimalPlaces(double profitRate) {
         double roundedNumber = Math.round(profitRate * ROUNDING_MULTIPLIER) / ROUNDING_MULTIPLIER;
 
-        return String.format("%.2f", roundedNumber);
+        return String.format("%.1f", roundedNumber);
     }
 
     public static void printErrorMessage(String errorMessage) {
