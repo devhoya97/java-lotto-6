@@ -1,10 +1,10 @@
 package lotto;
 
 import static lotto.LottoConstants.ERROR;
+import static lotto.LottoConstants.PRICE_PER_LOTTO;
 
 public class PurchaseAmount {
 
-    private static final long PRICE_PER_LOTTO = 1000;
     private final long money;
 
     public PurchaseAmount(long money) {
@@ -19,6 +19,6 @@ public class PurchaseAmount {
     }
 
     public int calculateAvailableLottoCount() {
-        return 0;
+        return (int) (money / PRICE_PER_LOTTO);
     }
 }
