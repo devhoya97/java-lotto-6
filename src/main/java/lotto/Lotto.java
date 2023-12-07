@@ -16,5 +16,13 @@ public class Lotto {
         }
     }
 
+    public int getCorrectCount(List<Integer> winningNumbers) {
+        return 0;
+    }
+
+    public boolean hasBonusNumber(int bonusNumber) {
+        return false;
+    }
+
     // TODO: 추가 기능 구현
 }
