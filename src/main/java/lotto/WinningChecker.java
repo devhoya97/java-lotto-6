@@ -13,7 +13,8 @@ public class WinningChecker {
 
     public WinningChecker(Lotto winningLotto, int bonusNumber) {
         validateRange(bonusNumber);
-        
+        validateDuplication(winningLotto, bonusNumber);
+
         this.winningLotto = winningLotto;
         this.bonusNumber = bonusNumber;
     }
@@ -21,6 +22,12 @@ public class WinningChecker {
     private void validateRange(int bonusNumber) {
         if (bonusNumber < MIN_LOTTO_NUMBER || bonusNumber > MAX_LOTTO_NUMBER) {
             throw new IllegalArgumentException(ERROR + "보너스 번호가 올바른 범위 안에 들어오지 않습니다.");
+        }
+    }
+
+    private void validateDuplication(Lotto winningLotto, int bonusNumber) {
+        if (winningLotto.hasBonusNumber(bonusNumber)) {
+            throw new IllegalArgumentException(ERROR + "당첨 번호와 보너스 번호가 중복됩니다.");
         }
     }
 
