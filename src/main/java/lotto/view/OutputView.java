@@ -53,4 +53,8 @@ public class OutputView {
 
         return String.format("%.2f", roundedNumber);
     }
+
+    public static void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+    }
 }
