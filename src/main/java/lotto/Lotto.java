@@ -6,6 +6,7 @@ import static lotto.LottoConstants.MAX_LOTTO_NUMBER;
 import static lotto.LottoConstants.MIN_LOTTO_NUMBER;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -61,5 +62,9 @@ public class Lotto {
 
     public boolean doesHaveBonusNumber(int bonusNumber) {
         return numbers.contains(bonusNumber);
+    }
+
+    public List<Integer> getNumbers() {
+        return Collections.unmodifiableList(numbers);
     }
 }
