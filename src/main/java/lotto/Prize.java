@@ -22,6 +22,10 @@ public enum Prize {
         return List.of(FIRST, FOURTH, FIFTH);
     }
 
+    public static List<Prize> getPrizesExcludingNoPrize() {
+        return List.of(FIRST, SECOND, THIRD, FOURTH, FIFTH);
+    }
+
     public int getCorrectCount() {
         return correctCount;
     }

@@ -27,7 +27,7 @@ public class OutputView {
         StringBuilder message = new StringBuilder();
 
         message.append("당첨 통계").append(NEW_LINE).append("---").append(NEW_LINE);
-        for (Prize prize : prizes) {
+        for (Prize prize : Prize.getPrizesExcludingNoPrize()) {
             message.append(prize.getCorrectCount()).append("개 일치 (")
                     .append(getFormattedMoney(prize.getWinningMoney())).append("원) - ")
                     .append(countPrize(prizes, prize)).append("개").append(NEW_LINE);
